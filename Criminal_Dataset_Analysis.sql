@@ -1,32 +1,77 @@
 
 -- 1. Display all records from the CriminalCases table.
-Select * from south_africa_criminal_database;
+--Create Database SA_Criminal_DB;
+Select * 
+from south_africa_criminal_database;
 
 -- 2. Count the total number of cases in the table.
-Select Count(*) from south_africa_criminal_database;
+Select Count(*) 
+from south_africa_criminal_database;
 
 -- 3. Count the number of cases in each province.
-Select Distinct Province from south_africa_criminal_database;
-Select Count(Province) AS NW from south_africa_criminal_database Where Province = 'North West';
-Select Count(*) AS NC from south_africa_criminal_database Where Province = 'Northern Cape';
-Select Count(*) AS WC from south_africa_criminal_database Where Province = 'Western Cape';
-Select Count(Province) AS KZN from south_africa_criminal_database Where Province = 'KwaZulu-Natal';
-Select Count(*) AS EC from south_africa_criminal_database Where Province = 'Eastern Cape';
-Select Count(*) AS L from south_africa_criminal_database Where Province = 'Limpopo';
-Select Count(*) AS G from south_africa_criminal_database Where Province = 'Gauteng';
-Select Count(*) AS MP from south_africa_criminal_database Where Province = 'Mpumalanga';
-Select Count(*) AS FS from south_africa_criminal_database Where Province = 'Free State';
+--Select Distinct Province 
+--from south_africa_criminal_database;
+
+Select Province, Count(*) AS Casenumber 
+from south_africa_criminal_database 
+Group By (Province);
+
+Select Count(Province) AS NW 
+from south_africa_criminal_database 
+Where Province = 'North West';
+
+Select Count(*) AS NC 
+from south_africa_criminal_database
+Where Province = 'Northern Cape';
+
+Select Count(*) AS WC 
+from south_africa_criminal_database 
+Where Province = 'Western Cape';
+
+Select Count(Province) AS KZN 
+from south_africa_criminal_database 
+Where Province = 'KwaZulu-Natal';
+
+Select Count(*) AS EC 
+from south_africa_criminal_database 
+Where Province = 'Eastern Cape';
+
+Select Count(*) AS L 
+from south_africa_criminal_database 
+Where Province = 'Limpopo';
+
+Select Count(*) AS G 
+from south_africa_criminal_database 
+Where Province = 'Gauteng';
+
+Select Count(*) AS MP 
+from south_africa_criminal_database 
+Where Province = 'Mpumalanga';
+
+Select Count(*) AS FS 
+from south_africa_criminal_database 
+Where Province = 'Free State';
 
 -- 4. Retrieve all cases where the crime type is Fraud.
-Select * from south_africa_criminal_database Where CrimeType = 'Fraud';
+Select * 
+from south_africa_criminal_database 
+Where CrimeType = 'Fraud';
 
 -- 6. Display all cases classified as High or Critical risk.
-Select * from south_africa_criminal_database Where RiskLevel = 'High' or RiskLevel = 'Critical'
+Select * 
+from south_africa_criminal_database 
+Where RiskLevel = 'High' or RiskLevel = 'Critical'
 
 -- 5. Count the number of cases for each crime type.
-Select Distinct CrimeType from south_africa_criminal_database;
-Select Count(*) AS Fraud from south_africa_criminal_database Where CrimeType = 'Fraud';
-Select Count(*) AS Identity_Theft from south_africa_criminal_database Where CrimeType = 'Identity Theft';
+--Select Distinct CrimeType from south_africa_criminal_database;
+Select Count(*) AS Fraud 
+from south_africa_criminal_database 
+Where CrimeType = 'Fraud';
+
+Select Count(*) AS Identity_Theft 
+from south_africa_criminal_database 
+Where CrimeType = 'Identity Theft';
+
 Select Count(*) AS Money_Laundering from south_africa_criminal_database Where CrimeType = 'Money Laundering';
 Select Count(*) AS Cybercrime from south_africa_criminal_database Where CrimeType = 'Cybercrime';
 Select Count(*) AS Vehicle_Theft from south_africa_criminal_database Where CrimeType = 'Vehicle Theft';
